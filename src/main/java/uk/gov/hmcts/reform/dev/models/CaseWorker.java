@@ -1,7 +1,12 @@
 package uk.gov.hmcts.reform.dev.models;
 
-import jakarta.persistence.*;
-import lombok.Data;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -14,7 +19,7 @@ import java.time.LocalDate;
     uniqueConstraints = {
         @UniqueConstraint(name = "uk_case_worker_id", columnNames = "case_worker_id")
     })
-public class CaseWorker extends BaseEntity{
+public class CaseWorker extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

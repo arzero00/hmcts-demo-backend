@@ -4,23 +4,20 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 import uk.gov.hmcts.reform.dev.dtos.CreateTaskRequest;
 import uk.gov.hmcts.reform.dev.dtos.TaskResponse;
 import uk.gov.hmcts.reform.dev.exceptions.TaskNotFoundException;
 import uk.gov.hmcts.reform.dev.models.CaseWorker;
 import uk.gov.hmcts.reform.dev.models.Task;
-import uk.gov.hmcts.reform.dev.models.TaskStatus;
 import uk.gov.hmcts.reform.dev.repository.CaseWorkerRepository;
 import uk.gov.hmcts.reform.dev.repository.TaskRepository;
-import uk.gov.hmcts.reform.dev.services.TaskManagementService;
 import uk.gov.hmcts.reform.dev.services.TaskManagementServiceImpl;
 
-import java.time.LocalDateTime;
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
@@ -63,6 +60,7 @@ class TaskServiceTest {
 
         assertThrows(
             TaskNotFoundException.class,
-            () -> service.getTask("user1", 1L));
+            () -> service.getTask("user1", 1L)
+        );
     }
 }
