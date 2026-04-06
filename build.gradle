@@ -77,6 +77,9 @@ tasks.withType(Test) {
 
 test {
   failFast = true
+  testLogging {
+    showStandardStreams = true
+  }
 }
 
 task functional(type: Test) {
@@ -114,8 +117,8 @@ project.tasks['check'].dependsOn integration
 
 sonarqube {
   properties {
-    property "sonar.projectName", "Reform :: test-backend"
-    property "sonar.projectKey", "uk.gov.hmcts.reform:test-backend"
+    property "sonar.projectName", "Reform :: hmcts-demo-backend"
+    property "sonar.projectKey", "uk.gov.hmcts.reform:hmcts-demo-backend"
   }
 }
 
@@ -184,7 +187,7 @@ dependencies {
 mainClassName = 'uk.gov.hmcts.reform.dev.Application'
 
 bootJar {
-  archiveFileName = "test-backend.jar"
+  archiveFileName = "hmcts-demo-backend.jar"
 
   manifest {
     attributes('Implementation-Version': project.version.toString())

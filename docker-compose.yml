@@ -1,0 +1,18 @@
+name: hmcts-backend-distribution
+
+services:
+  postgres:
+    image: postgres:18-alpine
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=hmct_db
+    ports:
+      - "5432:5432"
+
+  hmcts-demo-backend:
+    image: hmcts-demo-backend:latest
+    ports:
+      - "4000:4000"
+    depends_on:
+      - postgres

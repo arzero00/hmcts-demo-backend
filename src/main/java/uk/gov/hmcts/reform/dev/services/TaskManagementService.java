@@ -2,12 +2,11 @@ package uk.gov.hmcts.reform.dev.services;
 
 import uk.gov.hmcts.reform.dev.dtos.CreateTaskRequest;
 import uk.gov.hmcts.reform.dev.dtos.TaskResponse;
-import uk.gov.hmcts.reform.dev.models.Task;
 import uk.gov.hmcts.reform.dev.models.TaskStatus;
 
 import java.util.List;
 
-public interface  TaskManagementService {
+public interface TaskManagementService {
     TaskResponse createTask(String caseWorkerId, CreateTaskRequest request);
 
     TaskResponse getTask(String caseWorkerId, Long taskId);
